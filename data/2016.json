@@ -1,0 +1,37 @@
+[
+	{
+		"jabatan":"Ketua",
+		"nama":"Tan Jason"
+	},
+	{
+		"jabatan":"Sekretaris",
+		"nama":"Lusia Devita"
+	},
+	{
+		"jabatan":"Bendahara",
+		"nama":"Ane Cornelia"
+	},
+	{
+		"jabatan":"Koordinator Pengabdian Masyarakat",
+		"nama":"Stefanus Yoga"
+	},
+	{
+		"jabatan":"Koordinator Riset",
+		"nama":"Chandra Pangestu"
+	},
+	{
+		"jabatan":"Koordinator Pengajar",
+		"nama":"Gidion Siwi"
+	},
+	{
+		"jabatan":"Pengajar",
+		"nama":[
+				{"nama": "Fransiska Melathi"},
+				{"nama": "Grant Ivan"},
+				{"nama": "Johandi"},
+				{"nama": "Abdoni Adhi"},
+				{"nama": "Jesicha Claudya"},
+				{"nama" : "Jason Prana"}
+		]
+	}
+]

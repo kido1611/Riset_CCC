@@ -1,8 +1,13 @@
 import React from 'react';
-import {indigo500, pink500, fullWhite} from 'material-ui/styles/colors';
-import {Tabs, Tab} from 'material-ui/Tabs';
+
+import {indigo500, pink500, orange500, fullWhite} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import {Tabs, Tab} from 'material-ui/Tabs';
 import Paper from 'material-ui/Paper';
+
+import Struktur from './components/Struktur';
+
 
 class Base extends React.Component{
 	// constructor(props){
@@ -51,7 +56,7 @@ class Base extends React.Component{
 				background: pink500,
 			},
 			inkBar: {
-				backgroundColor: indigo500, 
+				backgroundColor: orange500, 
 			}
 		};
 		return (
@@ -68,22 +73,14 @@ class Base extends React.Component{
 						<Tabs inkBarStyle={styles.inkBar}>
 							<Tab label="Home" style={styles.tab}>
 								<div style={styles.section}>
-								<h2 >Tab One</h2>
-								<p>
-								Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia Halo Dunia<br/>
-						asdasd
-								</p>
-								<p>
-								You can put any sort of HTML or react component in here. It even keeps the component state!
-								</p>
+									<p>
+										<h1>Sedang dibangun</h1>
+									</p>
 								</div>
 							</Tab>
 							<Tab label="Struktur Organisasi" style={styles.tab}>
 								<div style={styles.section}>
-								<h2>Tab Two</h2>
-								<p>
-								This is another example tab.
-								</p>
+									<Struktur />
 								</div>
 							</Tab>
 						</Tabs>

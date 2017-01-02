@@ -20,7 +20,7 @@ class Struktur extends React.Component{
 		var _this = this;
 		var tahun = data;
 		console.log("Load data "+tahun);;
-		axios.get('/data/'+tahun+'.json')
+		axios.get('data/'+tahun+'.json')
 			.then(function (response) {
 				_this.setState({
 					value: tahun, 
@@ -80,7 +80,7 @@ class Struktur extends React.Component{
 										<td><b>{row.jabatan}</b></td>
 										<td>:</td>
 										{
-											row.jabatan!=="Pengajar" ? 
+											Object.prototype.toString.call(row.nama) !== '[object Array]' ? 
 												<td>{row.nama}</td>
 											:
 												<td>

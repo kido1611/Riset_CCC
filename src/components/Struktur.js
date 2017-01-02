@@ -3,33 +3,77 @@ import React from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
+import axios from 'axios';
 
 class Struktur extends React.Component{
 	
 	constructor(){
 		super();
 		this.state = {
-			value: 2016,
+			value: 0,
+			list: [],
 		}
+	}
+
+	loadData(data){
+		var _this = this;
+		var tahun = data;
+		console.log("Load data "+tahun);;
+		axios.get('/data/'+tahun+'.json')
+			.then(function (response) {
+				_this.setState({
+					value: tahun, 
+				});
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error.response);
+			});
+	}
+
+	componentWillMount(){
+		var _this = this;
+		axios.get('data/list.json')
+			.then(function (response) {
+				_this.setState({
+					list: response.data,
+				});
+				_this.loadData(response.data[response.data.length-1].tahun);
+			})
+			.catch(function (error) {
+				console.log(error);
+				_this.setState({
+					value: 0,
+				});
+			});
 	}
 
 	handleChange = (event, index, value) => {
 		this.setState({value});
+		this.loadData(value);
 	}
 
 	render(){
 		return (
-			<div>
-				<SelectField
-					floatingLabelText="Struktur Pengurus"
-					value={this.state.value}
-					fullWidth={true}
-					onChange={this.handleChange} >
-					<MenuItem value={2015} primaryText="2015-2016" />
-					<MenuItem value={2016} primaryText="2016-2017" />
-					<MenuItem value={2017} primaryText="2017-2018" />
-				</SelectField>
-			</div>
+			
+			this.state.value!==0 ?
+				<div>
+					<SelectField
+						floatingLabelText="Struktur Pengurus"
+						value={this.state.value}
+						fullWidth={true}
+						onChange={this.handleChange} >
+						{
+							this.state.list.map(item => (
+								<MenuItem value={item.tahun} primaryText={item.tahun+"-"+(item.tahun+1)} key={item.tahun} />
+							))
+						}
+					</SelectField>
+				</div>
+			:
+				<div>
+					<h1>Cannot load data</h1>
+				</div>
 		);
 	}
 }

@@ -2,6 +2,7 @@ Projek ini adalah hasil dari riset KBM CCC FTEK 2016/2017. Riset kali ini merupa
 
 Project ini dibuat dengan menggunakan Bootstrap [Create React App](https://github.com/facebookincubator/create-react-app)
 
+Live demo dapat dilihat di [http://kido1611.github.io/Riset_CCC](http://kido1611.github.io/Riset_CCC)
 ## Daftar isi
 - [Fitur](#fitur)
 - [Instalasi](#instalasi)

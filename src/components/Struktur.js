@@ -10,7 +10,7 @@ class Struktur extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			value: 0,
+			value: '',
 			list: [],
 		}
 	}
@@ -38,12 +38,13 @@ class Struktur extends React.Component{
 				_this.setState({
 					list: response.data,
 				});
-				_this.loadData(response.data[response.data.length-1].tahun);
+				if(response.data.length>0)
+					_this.loadData(response.data[response.data.length-1].tahun);
 			})
 			.catch(function (error) {
 				console.log(error);
 				_this.setState({
-					value: 0,
+					value: '',
 				});
 			});
 	}
@@ -56,7 +57,7 @@ class Struktur extends React.Component{
 	render(){
 		return (
 			
-			this.state.value!==0 ?
+			(this.state.value!=='' && this.state.value!==0)?
 				<div>
 					<SelectField
 						floatingLabelText="Struktur Pengurus"

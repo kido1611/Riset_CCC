@@ -12,6 +12,7 @@ class Struktur extends React.Component{
 		this.state = {
 			value: '',
 			list: [],
+			data: [],
 		}
 	}
 
@@ -23,8 +24,8 @@ class Struktur extends React.Component{
 			.then(function (response) {
 				_this.setState({
 					value: tahun, 
+					data: response.data,
 				});
-				console.log(response);
 			})
 			.catch(function (error) {
 				console.log(error.response);
@@ -70,6 +71,32 @@ class Struktur extends React.Component{
 							))
 						}
 					</SelectField>
+					<div>
+						<table>
+							<tbody>
+							{
+								this.state.data.map((row, index) => (
+									<tr key={index}>
+										<td><b>{row.jabatan}</b></td>
+										<td>:</td>
+										{
+											row.jabatan!=="Pengajar" ? 
+												<td>{row.nama}</td>
+											:
+												<td>
+													{
+														row.nama.map((row2, index2) => (
+															<span key={index2}>{index2+1}. {row2.nama}<br/></span>
+														))
+													}
+												</td>
+										}
+									</tr>
+								))
+							}
+							</tbody>
+						</table>
+					</div>
 				</div>
 			:
 				<div>

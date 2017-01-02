@@ -41,6 +41,7 @@ class Base extends React.Component{
 				maxWidth: '900px',
 				margin: 'auto',
 				marginTop: '-30px',
+				marginBottom: '20px',
 			},
 			section: {
 				padding: '16px',

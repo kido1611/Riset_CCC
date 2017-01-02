@@ -73,9 +73,7 @@ class Base extends React.Component{
 						<Tabs inkBarStyle={styles.inkBar}>
 							<Tab label="Home" style={styles.tab}>
 								<div style={styles.section}>
-									<p>
-										<h1>Sedang dibangun</h1>
-									</p>
+									<h1>Sedang dibangun</h1>
 								</div>
 							</Tab>
 							<Tab label="Struktur Organisasi" style={styles.tab}>
